@@ -2,6 +2,7 @@ import 'package:chat/entity/chat_message.dart';
 import 'package:chat/entity/chatroom.dart';
 import 'package:chat/entity/user_chat_info.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
 
 class ChatRepository {
   final chatRoomKey = "ChatRoom";
@@ -48,9 +49,8 @@ class ChatRepository {
           .collection(messages)
           .add(message as Map<String, dynamic>)
           .then((documentSnapshot) =>
-          print("Added Data with ID: ${documentSnapshot.id}"));
-      // .doc(messageId)
-      // .set(message.toJson());
+          debugPrint("Added Data with ID: ${documentSnapshot.id}"));
+
     } catch (e) {
       rethrow;
     }
