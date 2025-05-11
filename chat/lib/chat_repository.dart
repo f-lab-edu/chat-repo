@@ -35,7 +35,6 @@ class ChatRepository {
     try {
 
       final message = ChatMessage(
-        // messageId: messageId,
         fromUid: fromUid,
         contents: contents,
         messageType: messageType,
