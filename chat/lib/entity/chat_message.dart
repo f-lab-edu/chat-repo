@@ -6,7 +6,7 @@ class ChatMessage {
   String? contents; // 메시지 내용
   String? messageType; // 메시지 타입 (예: 'text', 'image', 'file' 등)
   int? readCount; // 이 메시지를 읽은 사람 수
-  DateTime? timestamp; // 메시지 전송 시각
+  Timestamp? timestamp; // 메시지 전송 시각
 
   ChatMessage({
     this.messageId,
@@ -23,7 +23,7 @@ class ChatMessage {
     contents = json['contents'];
     messageType = json['messageType'];
     readCount = json['readCount'];
-    timestamp =  (json['timestamp'] as Timestamp).toDate();
+    timestamp =  json['timestamp'];
   }
 
   Map<String, dynamic> toJson() {
