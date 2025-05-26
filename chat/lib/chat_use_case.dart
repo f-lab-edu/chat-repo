@@ -2,6 +2,7 @@
 import 'dart:async';
 import 'package:chat/entity/chat_message.dart';
 import 'package:chat/chat_repository.dart';
+import 'package:chat/send_message_param.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ChatUseCase {
@@ -24,13 +25,8 @@ class ChatUseCase {
   }
 
   // 메시지 전송
-  Future<void> sendMessage(String chatId, String fromUid, String message, {String messageType = 'text'}) async {
-    await _repository.sendMessage(
-      chatId: chatId,
-      fromUid: fromUid,
-      contents: message,
-      messageType: messageType,
-    );
+  Future<void> sendMessage(SendMessageParam param) async {
+    await _repository.sendMessage(param);
   }
 
   // 리소스 해제
