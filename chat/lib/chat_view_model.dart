@@ -1,6 +1,7 @@
 
 
 import 'package:chat/chat_use_case.dart';
+import 'package:chat/send_message_param.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -41,7 +42,13 @@ class ChatViewModel with ChangeNotifier {
         if (message.trim().isEmpty) return;
 
         try {
-            await usecase.sendMessage(chatId, currentUserId, message);
+            final param = SendMessageParam(
+                chatId: chatId,
+                fromUid: currentUserId,
+                contents: message,
+                messageType: 'text',
+            );
+            await usecase.sendMessage(param);
         } catch(e) {
             debugPrint('error : ${e.toString()}');
         }
