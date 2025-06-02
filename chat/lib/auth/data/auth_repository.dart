@@ -9,7 +9,7 @@ class AuthRepository {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   // 구글 로그인
-  Future<User> signInWithGoogle() async {
+  Future<Users> signInWithGoogle() async {
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
     if (googleUser == null) throw Exception('구글 로그인 취소됨');
 
@@ -29,7 +29,7 @@ class AuthRepository {
   }
 
   // 애플 로그인 (iOS only)
-  Future<User> signInWithApple() async {
+  Future<Users> signInWithApple() async {
     final appleCredential = await SignInWithApple.getAppleIDCredential(
       scopes: [
         AppleIDAuthorizationScopes.email,
@@ -53,7 +53,7 @@ class AuthRepository {
   }
 
   // Firestore에 유저 정보 저장(최초 로그인 시) 또는 기존 정보 반환
-  Future<User> _saveOrFetchUser(
+  Future<Users> _saveOrFetchUser(
       fb_auth.User? fbUser, {
         String? nickName,
         String? email,
@@ -63,7 +63,7 @@ class AuthRepository {
     final doc = _firestore.collection('Users').doc(fbUser.uid);
     final snapshot = await doc.get();
     if (!snapshot.exists) {
-      final user = User(
+      final user = Users(
         uid: fbUser.uid,
         nickName: nickName,
         email: email ?? fbUser.email,
@@ -75,7 +75,12 @@ class AuthRepository {
       await doc.set(user.toJson());
       return user;
     } else {
-      return User.fromJson(snapshot.data()!);
+      return Users.fromJson(snapshot.data()!);
     }
   }
+
+  Future<void> signOut() async {
+    await fb_auth.FirebaseAuth.instance.signOut();
+  }
+
 }
