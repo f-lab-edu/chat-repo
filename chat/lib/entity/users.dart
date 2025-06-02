@@ -1,5 +1,5 @@
 
-class User {
+class Users {
   String? uid; // 사용자 고유 식별자 (Firestore 문서 ID)
   String? nickName; // 닉네임
   String? email; // 이메일 주소
@@ -8,7 +8,7 @@ class User {
   Map<String, bool>? friendsList; // 친구 목록 (예: {'friendUid1': true, ...})
   Map<String, bool>? blockedList; // 차단한 친구 목록 (예: {'blockedUid1': true, ...})
 
-  User({
+  Users({
      this.uid,
      this.nickName,
      this.email,
@@ -18,7 +18,7 @@ class User {
      this.blockedList,
   });
 
-  User.fromJson(Map<String, dynamic> json) {
+  Users.fromJson(Map<String, dynamic> json) {
     uid = json['uid'];
     nickName = json['nickName'];
     email = json['email'];
