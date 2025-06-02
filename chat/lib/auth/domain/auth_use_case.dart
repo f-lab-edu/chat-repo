@@ -5,6 +5,9 @@ class AuthUseCase {
   final AuthRepository _repository;
   AuthUseCase(this._repository);
 
-  Future<User> signInWithGoogle() => _repository.signInWithGoogle();
-  Future<User> signInWithApple() => _repository.signInWithApple();
+  Future<Users> signInWithGoogle() => _repository.signInWithGoogle();
+  Future<Users> signInWithApple() => _repository.signInWithApple();
+
+  Future<void> signOut() async => await _repository.signOut();
+
 }
