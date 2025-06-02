@@ -7,31 +7,25 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:459284716238:android:94867215059faa7cb80e9f",
-        "android_client_info": {
-          "package_name": "com.example.chat"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBmlRZUu6EyHo8hLYFrg2Sn6EW5xn1wEoE"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
         "mobilesdk_app_id": "1:459284716238:android:efb9be07cdf1406db80e9f",
         "android_client_info": {
           "package_name": "com.jjhwnn.chat"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "459284716238-s35q897ijjfunokv0f0jd8hsih9ur01n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jjhwnn.chat",
+            "certificate_hash": "247183c9f1194bfb51a39ef66ead3f93bdbf2048"
+          }
+        },
+        {
+          "client_id": "459284716238-np13d4fdp6nvtlo83vt5j64pc28p9bg1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyBmlRZUu6EyHo8hLYFrg2Sn6EW5xn1wEoE"
@@ -39,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "459284716238-np13d4fdp6nvtlo83vt5j64pc28p9bg1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "459284716238-45oapclk0khjf25o0m3bihjc8v3kmu77.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.jjhwnn.chat"
+              }
+            }
+          ]
         }
       }
     }
